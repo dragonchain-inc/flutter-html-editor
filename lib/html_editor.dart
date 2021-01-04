@@ -179,6 +179,7 @@ class HtmlEditorState extends State<HtmlEditor> {
                             .replaceAll('\r\n', " ");
                         String txt =
                             "\$('.note-editable').append( '" + txtIsi + "');";
+                        print('!!!!!!showBottomToolbar $txt');
                         _controller.evaluateJavascript(txt);
                       }),
                     ],
@@ -210,8 +211,10 @@ class HtmlEditorState extends State<HtmlEditor> {
   }
 
   Future<String> getText() async {
-    await _controller.evaluateJavascript(
+    final tmp = await _controller.evaluateJavascript(
         "GetTextSummernote.postMessage(document.getElementsByClassName('note-editable')[0].innerHTML);");
+    print('!!!!!!getText() tmp ->$tmp');
+    print('!!!!!!getText() $text');
     return text;
   }
 
@@ -229,19 +232,23 @@ class HtmlEditorState extends State<HtmlEditor> {
         "document.getElementsByClassName('note-editable')[0].innerHTML = '" +
             txtIsi +
             "';";
+    print('!!!!!!setText() $txt');
     _controller.evaluateJavascript(txt);
   }
 
   setFullContainer() {
+    print('!!!!!!setFullContainer()');
     _controller.evaluateJavascript(
         '\$("#summernote").summernote("fullscreen.toggle");');
   }
 
   setFocus() {
+    print('!!!!!!setFocus()');
     _controller.evaluateJavascript("\$('#summernote').summernote('focus');");
   }
 
   setEmpty() {
+    print('!!!!!!setEmpty()');
     _controller.evaluateJavascript("\$('#summernote').summernote('reset');");
   }
 
@@ -252,7 +259,7 @@ class HtmlEditorState extends State<HtmlEditor> {
         "document.getElementsByClassName('note-placeholder')[0].innerHTML = '" +
             text +
             "';";
-    print('!!!!!! $hint');
+    print('!!!!!!setHint() $hint');
     _controller.evaluateJavascript(hint);
   }
 
@@ -309,6 +316,7 @@ class HtmlEditorState extends State<HtmlEditor> {
 
                     String txt =
                         "\$('.note-editable').append( '" + base64Image + "');";
+                    print('!!!!!!showDialog() $txt');
                     _controller.evaluateJavascript(txt);
                   }),
             ),
@@ -337,6 +345,7 @@ class HtmlEditorState extends State<HtmlEditor> {
                     "${base64Encode(imageBytes)}\" data-filename=\"$filename\">";
                 String txt =
                     "\$('.note-editable').append( '" + base64Image + "');";
+                print('!!!!!!showModalBottomSheet() $txt');
                 _controller.evaluateJavascript(txt);
               }),
             ));
