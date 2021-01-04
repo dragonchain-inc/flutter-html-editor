@@ -246,10 +246,9 @@ class HtmlEditorState extends State<HtmlEditor> {
   }
 
   setHint(String text) {
-    print('!!!!! testing ');
-    String hint =
-        "document.getElementsByClassName(\"note-placeholder\").html(\"$text\");";
-    print('!!!!! $hint');
+    // String hint = '\$(".note-placeholder").html("$text");';
+    String hint = '\$(".note-placeholder").innerHTML("$text");';
+    print('!!!!!! $hint');
     _controller.evaluateJavascript(hint);
   }
 
