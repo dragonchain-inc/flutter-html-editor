@@ -246,7 +246,7 @@ class HtmlEditorState extends State<HtmlEditor> {
   }
 
   setHint(String text) {
-    String hint = '\$(".note-placeholder").html("$text");';
+    String hint = '(".note-placeholder").html("$text");';
     _controller.evaluateJavascript(hint);
   }
 
