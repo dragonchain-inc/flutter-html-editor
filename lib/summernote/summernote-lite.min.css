@@ -300,10 +300,12 @@ fieldset[disabled] .note-btn:focus {
   background-color: #fff;
   border-color: #dae0e5;
 }
+/* TAW
+  .note-btn.focus,
+  .note-btn.focus,
+*/
 .note-btn.active,
-.note-btn.focus,
 .note-btn:active,
-.note-btn:focus,
 .note-btn:hover {
   color: #333;
   text-decoration: none;
