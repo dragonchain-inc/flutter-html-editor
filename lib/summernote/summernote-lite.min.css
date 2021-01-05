@@ -283,7 +283,6 @@
 }
 /* TAW
   background-color: #ebebeb;
-*/
 .note-btn.focus,
 .note-btn:focus,
 .note-btn:hover {
@@ -291,6 +290,7 @@
   background-color: #fff;
   border-color: #dae0e5;
 }
+*/
 .note-btn.disabled.focus,
 .note-btn.disabled:focus,
 .note-btn[disabled].focus,
