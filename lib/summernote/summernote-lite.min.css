@@ -283,6 +283,7 @@
 }
 /* TAW
   background-color: #ebebeb;
+*/
 .note-btn.focus,
 .note-btn:focus,
 .note-btn:hover {
@@ -290,7 +291,6 @@
   background-color: #fff;
   border-color: #dae0e5;
 }
-*/
 .note-btn.disabled.focus,
 .note-btn.disabled:focus,
 .note-btn[disabled].focus,
@@ -320,7 +320,7 @@ fieldset[disabled] .note-btn:focus {
 .note-btn.active,
 .note-btn:active {
   background-image: none;
-  box-shadow: inset 0 3px 5px rgba(243, 1, 1, 0.925);
+  box-shadow: inset 0 3px 5px rgba(28, 122, 195, 0.625);
 }
 .note-btn.disabled,
 .note-btn[disabled],
