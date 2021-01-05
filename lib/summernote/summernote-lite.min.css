@@ -317,10 +317,12 @@ fieldset[disabled] .note-btn:focus {
 /* TAW
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   */
+.note-btn.focus,
 .note-btn.active,
+.note-btn.focus,
 .note-btn:active {
   background-image: none;
-  box-shadow: inset 0 3px 5px rgba(28, 122, 195, 0.625);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.625);
 }
 .note-btn.disabled,
 .note-btn[disabled],
