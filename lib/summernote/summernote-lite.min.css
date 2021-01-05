@@ -303,10 +303,10 @@ fieldset[disabled] .note-btn:focus {
 /* TAW
   .note-btn.focus,
   .note-btn.focus,
+.note-btn:hover {
 */
 .note-btn.active,
-.note-btn:active,
-.note-btn:hover {
+.note-btn:active {
   color: #333;
   text-decoration: none;
   border: 1px solid #dae0e5;
