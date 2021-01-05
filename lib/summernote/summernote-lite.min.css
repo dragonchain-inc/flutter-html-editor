@@ -309,6 +309,8 @@ fieldset[disabled] .note-btn:focus {
   outline: 0;
   border-radius: 1px;
 }
+
+/* TAW red */
 .note-btn.active,
 .note-btn:active {
   background-image: none;
@@ -1267,10 +1269,12 @@ a.note-dropdown-item:hover {
 .note-toolbar .note-color-palette div .note-color-btn:hover {
   border: 1px solid #000;
 }
+
+/* TAW blue */
 .note-modal .modal-dialog {
   outline: 0;
   border-radius: 5px;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(27, 5, 228, 0.5);
 }
 .note-modal .form-group {
   margin-left: 0;
