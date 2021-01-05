@@ -246,13 +246,11 @@ class HtmlEditorState extends State<HtmlEditor> {
   }
 
   setHint(String text) {
-    String hint = '\$(".note-placeholder").html("$text");';
-    /*
+    // String hint = '\$(".note-placeholder").html("$text");';
     String hint =
         "document.getElementsByClassName('note-placeholder')[0].innerHTML = '" +
             text +
             "';";
-            */
     _controller.evaluateJavascript(hint);
   }
 
