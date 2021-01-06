@@ -197,7 +197,6 @@ class HtmlEditorState extends State<HtmlEditor> {
         name: 'GetTextSummernote',
         onMessageReceived: (JavascriptMessage message) {
           String isi = message.message;
-          print('>>> getTextJavascriptChannel() isi -> $isi');
           if (isi.isEmpty ||
               isi == "<p></p>" ||
               isi == "<p><br></p>" ||
@@ -211,14 +210,8 @@ class HtmlEditorState extends State<HtmlEditor> {
   }
 
   Future<String> getText() async {
-    print('!!!!!!!!!!!!!! DEGUG getText()');
-    await _controller.evaluateJavascript(
-        "console.log('doc ->',document.getElementsByClassName('note-editable')[0].innerHTML);");
-    await _controller.evaluateJavascript(
-        "console.log('GetText ->',GetTextSummernote.postMessage(document.getElementsByClassName('note-editable')[0].innerHTML));");
     await _controller.evaluateJavascript(
         "GetTextSummernote.postMessage(document.getElementsByClassName('note-editable')[0].innerHTML);");
-    print('!!!!!!!!!!!!!!');
     return text;
   }
 
@@ -253,11 +246,11 @@ class HtmlEditorState extends State<HtmlEditor> {
   }
 
   setHint(String text) {
-    // String hint = '\$(".note-placeholder").html("$text");';
-    String hint =
-        "document.getElementsByClassName('note-placeholder')[0].innerHTML = '" +
-            text +
-            "';";
+    String hint = '\$(".note-placeholder").html("$text");';
+    // String hint =
+    //     "document.getElementsByClassName('note-placeholder')[0].innerHTML = '" +
+    //          text +
+    //        "';";
     _controller.evaluateJavascript(hint);
   }
 
