@@ -211,7 +211,7 @@ class HtmlEditorState extends State<HtmlEditor> {
 
   Future<String> getIosText() async {
     final txt = await _controller.evaluateJavascript(
-        "document.getElementsByClassName('note-editable')[0].innerHTML;");
+        "document.getElementsByClassName('note-editablr')[0].innerHTML;");
     print('getIosText() after $txt');
     setState(() {
       text = txt;
