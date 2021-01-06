@@ -212,6 +212,8 @@ class HtmlEditorState extends State<HtmlEditor> {
   Future<String> getText() async {
     print('!!!!!!!!!!!!!! DEGUG getText()');
     await _controller.evaluateJavascript(
+        "console.log(document.getElementsByClassName('note-placeholder')[0].innerHTML);");
+    await _controller.evaluateJavascript(
         "console.log(document.getElementsByClassName('note-editable')[0].innerHTML);");
     // await _controller.evaluateJavascript(
     // "GetTextSummernote.postMessage(document.getElementsByClassName('note-editable')[0].innerHTML);");
