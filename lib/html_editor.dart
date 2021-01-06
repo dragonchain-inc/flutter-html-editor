@@ -192,29 +192,30 @@ class HtmlEditorState extends State<HtmlEditor> {
     );
   }
 
+  String checkIfEmpty(String isi) {
+    return (isi.isEmpty ||
+            isi == "<p></p>" ||
+            isi == "<p><br></p>" ||
+            isi == "<p><br/></p>")
+        ? ""
+        : isi;
+  }
+
   JavascriptChannel getTextJavascriptChannel(BuildContext context) {
     return JavascriptChannel(
         name: 'GetTextSummernote',
         onMessageReceived: (JavascriptMessage message) {
-          String isi = message.message;
-          if (isi.isEmpty ||
-              isi == "<p></p>" ||
-              isi == "<p><br></p>" ||
-              isi == "<p><br/></p>") {
-            isi = "";
-          }
           setState(() {
-            text = isi;
+            text = checkIfEmpty(message.message);
           });
         });
   }
 
-  Future<String> getIosText() async {
-    final txt = await _controller.evaluateJavascript(
-        "document.getElementsByClassName('note-editablr')[0].innerHTML;");
-    print('getIosText() after $txt');
+  Future<void> getIosText() async {
+    final isi = await _controller.evaluateJavascript(
+        "document.getElementsByClassName('note-editable')[0].innerHTML;");
     setState(() {
-      text = txt;
+      text = checkIfEmpty(isi);
     });
   }
 
@@ -246,15 +247,18 @@ class HtmlEditorState extends State<HtmlEditor> {
   }
 
   setFullContainer() {
+    print('>>> HtmlEditor... setFullContainer()');
     _controller.evaluateJavascript(
         '\$("#summernote").summernote("fullscreen.toggle");');
   }
 
   setFocus() {
+    print('>>> HtmlEditor... setFocus()');
     _controller.evaluateJavascript("\$('#summernote').summernote('focus');");
   }
 
   setEmpty() {
+    print('>>> HtmlEditor... setEmpty()');
     _controller.evaluateJavascript("\$('#summernote').summernote('reset');");
   }
 
