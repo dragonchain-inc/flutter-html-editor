@@ -197,6 +197,7 @@ class HtmlEditorState extends State<HtmlEditor> {
         name: 'GetTextSummernote',
         onMessageReceived: (JavascriptMessage message) {
           String isi = message.message;
+          print('>>> getTextJavascriptChannel() isi -> $isi');
           if (isi.isEmpty ||
               isi == "<p></p>" ||
               isi == "<p><br></p>" ||
@@ -212,9 +213,9 @@ class HtmlEditorState extends State<HtmlEditor> {
   Future<String> getText() async {
     print('!!!!!!!!!!!!!! DEGUG getText()');
     await _controller.evaluateJavascript(
-        "console.log(GetTextSummernote.postMessage(document.getElementsByClassName('note-placeholder')[0].innerHTML));");
+        "console.log('doc ->',document.getElementsByClassName('note-editable')[0].innerHTML);");
     await _controller.evaluateJavascript(
-        "console.log(GetTextSummernote.postMessage(document.getElementsByClassName('note-editable')[0].innerHTML));");
+        "console.log('GetText ->',GetTextSummernote.postMessage(document.getElementsByClassName('note-editable')[0].innerHTML));");
     // await _controller.evaluateJavascript(
     // "GetTextSummernote.postMessage(document.getElementsByClassName('note-editable')[0].innerHTML);");
     print('!!!!!!!!!!!!!!');
