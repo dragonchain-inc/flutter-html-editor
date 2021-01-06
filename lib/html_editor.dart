@@ -220,12 +220,10 @@ class HtmlEditorState extends State<HtmlEditor> {
   }
 
   Future<String> getText() async {
-    print('!!!!!!!!!!getText() before');
     (Platform.isIOS)
         ? await getIosText()
         : await _controller.evaluateJavascript(
             "GetTextSummernote.postMessage(document.getElementsByClassName('note-editable')[0].innerHTML);");
-    print('getText() after $text');
     return text;
   }
 
@@ -247,23 +245,19 @@ class HtmlEditorState extends State<HtmlEditor> {
   }
 
   setFullContainer() {
-    print('>>> HtmlEditor... setFullContainer()');
     _controller.evaluateJavascript(
         '\$("#summernote").summernote("fullscreen.toggle");');
   }
 
   setFocus() {
-    print('>>> HtmlEditor... setFocus()');
     _controller.evaluateJavascript("\$('#summernote').summernote('focus');");
   }
 
   setEmpty() {
-    print('>>> HtmlEditor... setEmpty()');
     _controller.evaluateJavascript("\$('#summernote').summernote('reset');");
   }
 
   setHint(String text) {
-    // String hint = '\$(".note-placeholder").html("$text");';
     String hint =
         "document.getElementsByClassName('note-placeholder')[0].innerHTML = '" +
             text +
