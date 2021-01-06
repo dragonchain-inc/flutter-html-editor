@@ -210,8 +210,12 @@ class HtmlEditorState extends State<HtmlEditor> {
   }
 
   Future<String> getText() async {
-    await _controller.evaluateJavascript(
-        "GetTextSummernote.postMessage(document.getElementsByClassName('note-editable')[0].innerHTML);");
+    print('!!!!!!!!!!getText() before');
+    final text = await _controller.evaluateJavascript(
+        "document.getElementsByClassName('note-editable')[0].innerHTML;");
+    print('getText() after $text');
+    // await _controller.evaluateJavascript(
+    // "GetTextSummernote.postMessage(document.getElementsByClassName('note-editable')[0].innerHTML);");
     return text;
   }
 
