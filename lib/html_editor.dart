@@ -307,7 +307,6 @@ class HtmlEditorState extends State<HtmlEditor> {
 
                     String txt =
                         "\$('.note-editable').append( '" + base64Image + "');";
-                    print('dialogPickImage() ->$txt');
                     _controller.evaluateJavascript(txt);
                   }),
             ),
